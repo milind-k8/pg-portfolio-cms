@@ -10,8 +10,10 @@ const heroBlock: Template = {
   name: "hero",
   label: "Hero Section",
   fields: [
-    { type: "string", name: "subtitle", label: "Subtitle" },
-    { type: "string", name: "title", label: "Title" },
+    { type: "string", name: "heroTopper", label: "Top Badge (e.g. Webflow)" },
+    { type: "string", name: "heroTitle", label: "Main Headline", ui: { component: "textarea" } },
+    { type: "string", name: "subtitle", label: "Floating Card Subtitle" },
+    { type: "string", name: "title", label: "Floating Card Title" },
     { type: "string", name: "ctaText", label: "CTA Text" },
     { type: "string", name: "ctaLink", label: "CTA Link" },
     { type: "image", name: "image1", label: "Masonry Image 1" },

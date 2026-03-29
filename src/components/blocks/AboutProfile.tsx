@@ -5,24 +5,24 @@ import { tinaField } from "tinacms/dist/react";
 export default function AboutProfile({ data }: { data: any }) {
   return (
     <section className="section container fade-in-up">
-      <div style={{
+      <div className="about-profile-grid" style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         gap: "100px",
         alignItems: "center"
       }}>
-        <div style={{ position: "relative", height: "800px", width: "100%", overflow: "hidden" }}>
+        <div className="about-img-wrapper" style={{ position: "relative", height: "800px", width: "100%", overflow: "hidden" }}>
           <Image src={data.image || "/images/about_portrait.png"} alt="Photographer" fill style={{ objectFit: "cover" }} data-tina-field={tinaField(data, "image")} className="hover-zoom-img" />
         </div>
         <div>
-          <h1 style={{ fontSize: "64px", marginBottom: "40px", fontWeight: 300 }} data-tina-field={tinaField(data, "sectionTitle")}>
+          <h1 className="about-title" style={{ fontSize: "64px", marginBottom: "40px", fontWeight: 300, color: "var(--heading)" }} data-tina-field={tinaField(data, "sectionTitle")}>
             {data.sectionTitle || "About Me"}
           </h1>
           <p style={{
             fontFamily: "var(--font-serif)",
             fontSize: "18px",
             lineHeight: "1.8",
-            color: "rgba(0,0,0,0.7)",
+            color: "var(--paragraphs)",
             marginBottom: "60px",
             whiteSpace: "pre-wrap"
           }} data-tina-field={tinaField(data, "content")}>
@@ -39,6 +39,25 @@ export default function AboutProfile({ data }: { data: any }) {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 1024px) {
+          .about-profile-grid {
+             gap: 40px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .about-profile-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .about-img-wrapper {
+            height: 500px !important;
+          }
+          .about-title {
+            font-size: 48px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

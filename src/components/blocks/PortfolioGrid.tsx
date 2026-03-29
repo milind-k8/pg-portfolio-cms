@@ -7,26 +7,33 @@ export default function PortfolioGrid({ data }: { data: any }) {
 
   return (
     <section className="section fade-in-up" style={{ padding: "0 5% 120px 5%" }}>
-      <div className="container" style={{
+      <div className="portfolio-grid" style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "40px",
+        gridTemplateColumns: "repeat(2, 1fr)",
+        gap: "24px",
       }}>
         {items.map((item: any, i: number) => (
-          <div key={i} style={{ display: "flex", flexDirection: "column", cursor: "pointer" }} className="hover-zoom-img">
-            <div style={{ position: "relative", width: "100%", height: "600px", overflow: "hidden", marginBottom: "24px" }}>
-              <Image src={item.image || "/images/portfolio_couple.png"} alt={item.name} fill style={{ objectFit: "cover" }} data-tina-field={tinaField(item, "image")} />
+          <div key={i} style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ position: "relative", width: "100%", height: "500px", overflow: "hidden", marginBottom: "20px" }}>
+              <Image src={item.image || "/images/portfolio_couple.png"} alt={item.name} fill style={{ objectFit: "cover" }} className="hover-zoom-img" data-tina-field={tinaField(item, "image")} />
             </div>
-            <h3 style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "28px",
-              color: "var(--text-charcoal)"
-            }} data-tina-field={tinaField(item, "name")}>
-              {item.name || "Jennifer & Oliver"}
+            <h3 style={{ fontSize: "20px", fontWeight: 300, color: "var(--heading)" }} data-tina-field={tinaField(item, "name")}>
+              {item.name}
             </h3>
           </div>
         ))}
       </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .portfolio-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .portfolio-grid > div > div {
+             height: 400px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

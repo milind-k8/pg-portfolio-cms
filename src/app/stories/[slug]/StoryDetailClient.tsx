@@ -20,7 +20,7 @@ export default function StoryDetailClient(props: any) {
       <Header />
       <main style={{ minHeight: "100vh" }}>
         {/* Cover Section */}
-        <section style={{ position: "relative", height: "100vh", width: "100%", overflow: "hidden" }}>
+        <section className="story-hero" style={{ position: "relative", height: "100vh", width: "100%", overflow: "hidden" }}>
           <Image 
             src={story.coverImage || "/images/portfolio_couple.png"} 
             alt={story.title} 
@@ -41,7 +41,7 @@ export default function StoryDetailClient(props: any) {
             color: "white",
             padding: "0 10%"
           }}>
-            <h1 style={{ 
+            <h1 className="story-title" style={{ 
               fontSize: "80px", 
               fontWeight: 300, 
               marginBottom: "24px", 
@@ -67,7 +67,7 @@ export default function StoryDetailClient(props: any) {
               fontFamily: "var(--font-serif)",
               fontSize: "24px",
               lineHeight: "1.8",
-              color: "var(--text-charcoal)",
+              color: "var(--paragraphs)",
               fontStyle: "italic"
             }} data-tina-field={tinaField(story, "description")}>
               {story.description}
@@ -76,7 +76,7 @@ export default function StoryDetailClient(props: any) {
 
         {/* Gallery Section */}
         <section className="section container fade-in-up">
-            <div style={{
+            <div className="gallery-layout" style={{
                 columns: "2 400px",
                 columnGap: "24px",
             }}>
@@ -103,6 +103,20 @@ export default function StoryDetailClient(props: any) {
                 ))}
             </div>
         </section>
+
+        <style jsx>{`
+          @media (max-width: 768px) {
+            .story-hero {
+               height: 60vh !important;
+            }
+            .story-title {
+               font-size: 40px !important;
+            }
+            .gallery-layout {
+               columns: 1 !important;
+            }
+          }
+        `}</style>
       </main>
       <Footer />
     </>

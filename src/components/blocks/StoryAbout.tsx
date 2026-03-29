@@ -1,53 +1,34 @@
 import React from "react";
 import Image from "next/image";
 import { tinaField } from "tinacms/dist/react";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 export default function StoryAbout({ data }: { data: any }) {
-  return (
-    <section className="section fade-in-up" style={{
-      position: "relative",
-      backgroundColor: "var(--bg-white)",
-      padding: "160px 5%",
-      overflow: "hidden"
-    }}>
-      {/* Watercolor background element */}
-      <div style={{
-        position: "absolute",
-        top: "-10%",
-        right: "-5%",
-        width: "600px",
-        height: "600px",
-        backgroundColor: "var(--accent-rose)",
-        opacity: 0.1,
-        borderRadius: "50%",
-        filter: "blur(80px)",
-        zIndex: 0
-      }} />
+  // If data is null or undefined (e.g. initial load)
+  if (!data) return null;
 
-      <div className="container" style={{
+  return (
+    <section className="section container fade-in-up">
+      <div className="story-about-grid" style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        gap: "80px",
-        alignItems: "center",
-        position: "relative",
-        zIndex: 1
+        gap: "100px",
+        alignItems: "center"
       }}>
         {/* Left Side Image */}
-        <div style={{ position: "relative", width: "100%", height: "700px", overflow: "hidden" }}>
+        <div className="story-about-img" style={{ position: "relative", width: "100%", height: "700px", overflow: "hidden" }}>
           <Image src={data.image || "/images/about_portrait.png"} alt="About Portrait" fill style={{ objectFit: "cover" }} data-tina-field={tinaField(data, "image")} />
         </div>
 
         {/* Right Side Content */}
         <div>
-          <h2 style={{ fontSize: "48px", marginBottom: "40px" }} data-tina-field={tinaField(data, "sectionTitle")}>
+          <h2 style={{ fontSize: "48px", marginBottom: "40px", color: "var(--heading)" }} data-tina-field={tinaField(data, "sectionTitle")}>
             {data.sectionTitle || "Who We Are"}
           </h2>
           <div style={{
             fontFamily: "var(--font-sans)",
             fontSize: "18px",
             lineHeight: "1.8",
-            color: "rgba(0,0,0,0.7)",
+            color: "var(--paragraphs)",
             marginBottom: "40px"
           }} data-tina-field={tinaField(data, "content")}>
             {typeof data.content === "string" ? <p style={{ whiteSpace: "pre-wrap" }}>{data.content}</p> : (
@@ -61,13 +42,29 @@ export default function StoryAbout({ data }: { data: any }) {
           <div style={{
             fontFamily: "var(--font-serif)",
             fontSize: "32px",
-            color: "var(--accent-rose)",
+            color: "var(--accent)",
             fontStyle: "italic"
           }} data-tina-field={tinaField(data, "signature")}>
             {data.signature || "Lynn Goodman"}
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 1024px) {
+          .story-about-grid {
+             gap: 40px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .story-about-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .story-about-img {
+            height: 400px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

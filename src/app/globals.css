@@ -1,34 +1,38 @@
 :root {
-  /* Color Palette */
-  --bg-almond: #F5F1E9;
-  --bg-white: #FFFFFF;
-  --accent-rose: #C88E81; /* Muted Rose/Terracotta */
-  --text-charcoal: #2D2D2D;
+    --background: #f6f4ec;
+    --paragraphs: #6d705e;
+    --heading: #545748;
+    --accent: #de967d;
+    --subtitle: #a0a48e;
+    --border: rgba(160, 164, 142, .5);
+    --white: white;
+    --preload: #ede9db;
 
-  /* Typography Variables from next/font */
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-inter);
+    --font-serif: var(--font-playfair);
+    --font-sans: var(--font-inter);
 }
 
-*, *::before, *::after {
+* {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-html, body {
-  background-color: var(--bg-almond);
-  color: var(--text-charcoal);
-  font-family: var(--font-sans);
+html,
+body {
+  max-width: 100vw;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  background-color: var(--background);
+  color: var(--paragraphs);
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 300; /* Lighter weight for elegance */
   margin: 0;
+  color: var(--heading);
 }
 
 a {
@@ -64,16 +68,16 @@ a {
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.15em;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 2px;
   transition: opacity 0.3s ease, border-color 0.3s ease;
   display: inline-block;
-  color: var(--text-charcoal);
+  color: var(--paragraphs);
 }
 
 .text-link-cta:hover {
   opacity: 0.7;
-  border-color: var(--text-charcoal);
+  border-color: var(--heading);
 }
 
 /* Base layouts */
@@ -85,4 +89,29 @@ a {
 
 .section {
   padding: 100px 0;
+}
+
+/* Mobile & Responsive Utilities */
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 8%;
+  }
+
+  h1 {
+    font-size: 40px !important;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  .grid-mobile-1 {
+    grid-template-columns: 1fr !important;
+  }
 }

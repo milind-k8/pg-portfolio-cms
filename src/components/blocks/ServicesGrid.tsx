@@ -13,13 +13,13 @@ export default function ServicesGrid({ data }: { data: any }) {
         textAlign: "center",
         textTransform: "uppercase",
         letterSpacing: "0.25em",
-        color: "rgba(0,0,0,0.6)",
+        color: "var(--subtitle)",
         marginBottom: "40px",
       }}>
         Inner Pages
       </div>
 
-      <div style={{
+      <div className="services-grid" style={{
         display: "grid",
         gridTemplateColumns: "repeat(3, 1fr)",
         gap: "24px",
@@ -31,23 +31,23 @@ export default function ServicesGrid({ data }: { data: any }) {
             alignItems: "center", 
             textAlign: "center",
             padding: "40px",
-            border: "1px solid rgba(0,0,0,0.05)",
-            backgroundColor: "var(--bg-white)"
+            border: "1px solid var(--border)",
+            backgroundColor: "var(--white)"
           }}>
              <div style={{
                 fontFamily: "var(--font-sans)",
                 fontSize: "9px",
                 textTransform: "uppercase",
                 letterSpacing: "0.15em",
-                color: "rgba(0,0,0,0.4)",
+                color: "var(--subtitle)",
                 marginBottom: "24px",
                 display: "flex",
                 alignItems: "center",
                 gap: "12px"
               }}>
-                <span style={{ width: "20px", height: "1px", backgroundColor: "rgba(0,0,0,0.2)"}}></span>
+                <span style={{ width: "20px", height: "1px", backgroundColor: "var(--border)"}}></span>
                 Service 0{i+1}
-                <span style={{ width: "20px", height: "1px", backgroundColor: "rgba(0,0,0,0.2)"}}></span>
+                <span style={{ width: "20px", height: "1px", backgroundColor: "var(--border)"}}></span>
               </div>
 
             <div style={{ position: "relative", width: "100%", height: "250px", overflow: "hidden", marginBottom: "32px" }}>
@@ -61,7 +61,7 @@ export default function ServicesGrid({ data }: { data: any }) {
               fontFamily: "var(--font-serif)",
               fontSize: "15px",
               lineHeight: "1.6",
-              color: "rgba(0,0,0,0.6)",
+              color: "var(--paragraphs)",
               marginBottom: "32px",
               fontStyle: "italic"
             }} data-tina-field={tinaField(item, "description")}>
@@ -73,6 +73,19 @@ export default function ServicesGrid({ data }: { data: any }) {
           </div>
         ))}
       </div>
+
+      <style jsx>{`
+        @media (max-width: 1024px) {
+          .services-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .services-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

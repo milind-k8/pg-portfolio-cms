@@ -10,7 +10,7 @@ export default function HeroCard({ data }: { data: any }) {
         <div style={{ marginBottom: "16px" }}>
           {/* Subtle icon/graphic */}
           <svg width="40" height="20" viewBox="0 0 40 20" fill="none" style={{ margin: "0 auto", opacity: 0.5 }}>
-            <path d="M20 18C20 18 10 -2 0 10C10 2 20 18 20 18ZM20 18C20 18 30 -2 40 10C30 2 20 18 20 18Z" fill="var(--accent-rose)" />
+            <path d="M20 18C20 18 10 -2 0 10C10 2 20 18 20 18ZM20 18C20 18 30 -2 40 10C30 2 20 18 20 18Z" fill="var(--accent)" />
           </svg>
         </div>
         <div style={{
@@ -18,19 +18,21 @@ export default function HeroCard({ data }: { data: any }) {
           fontSize: "10px",
           textTransform: "uppercase",
           letterSpacing: "0.3em",
-          color: "rgba(0,0,0,0.5)",
+          color: "var(--subtitle)",
           marginBottom: "24px",
-        }}>
-          Webflow
+        }} data-tina-field={tinaField(data, "heroTopper")}>
+          {data.heroTopper || "Webflow"}
         </div>
         <h1 style={{
-          fontSize: "64px",
+          fontSize: "clamp(40px, 8vw, 64px)",
           lineHeight: "1.1",
           margin: "0 auto",
           maxWidth: "700px",
-          color: "var(--text-charcoal)"
-        }}>
-          Wedding Website <br/>Template
+          color: "var(--heading)"
+        }} data-tina-field={tinaField(data, "heroTitle")}>
+          {data.heroTitle ? data.heroTitle.split('\n').map((line: string, i: number) => (
+            <React.Fragment key={i}>{line}<br/></React.Fragment>
+          )) : <>Wedding Website <br/>Template</>}
         </h1>
         <div style={{ height: "40px", width: "1px", backgroundColor: "rgba(0,0,0,0.1)", margin: "40px auto 0" }}></div>
       </div>
@@ -41,27 +43,28 @@ export default function HeroCard({ data }: { data: any }) {
           textAlign: "center",
           textTransform: "uppercase",
           letterSpacing: "0.25em",
-          color: "rgba(0,0,0,0.6)",
+          color: "var(--subtitle)",
           marginBottom: "40px",
       }}>
         Home Pages
       </div>
 
       {/* Masonry Layout mimicking HOME 1 */}
-      <div style={{
+      <div className="hero-grid-container" style={{
         position: "relative",
         display: "flex",
         justifyContent: "center",
         width: "100%",
-        padding: "0 10%",
+        padding: "0 5%",
       }}>
-        <div style={{
+        <div className="hero-masonry-grid" style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
+          gridTemplateColumns: "repeat(3, 1fr)",
           gap: "8px",
           width: "100%",
-          maxWidth: "1100px",
-          height: "65vh"
+          maxWidth: "1200px",
+          height: "65vh",
+          minHeight: "400px"
         }}>
           <div style={{ position: "relative", height: "100%", width: "100%", overflow: "hidden" }}>
             <Image src={data.image1 || "/images/hero_party.png"} alt="Hero Left" fill style={{ objectFit: "cover" }} className="hover-zoom-img" data-tina-field={tinaField(data, "image1")} />
@@ -75,11 +78,11 @@ export default function HeroCard({ data }: { data: any }) {
         </div>
 
         {/* Floating Center Card (HOME 1 style) */}
-        <div style={{
+        <div className="hero-floating-card" style={{
           position: "absolute",
           bottom: "10%",
           left: "25%",
-          backgroundColor: "var(--bg-white)",
+          backgroundColor: "var(--white)",
           padding: "50px 80px",
           textAlign: "center",
           boxShadow: "0 10px 40px rgba(0,0,0,0.03)",
@@ -91,20 +94,44 @@ export default function HeroCard({ data }: { data: any }) {
             fontSize: "10px",
             textTransform: "uppercase",
             letterSpacing: "0.2em",
-            color: "rgba(0,0,0,0.4)",
+            color: "var(--subtitle)",
             marginBottom: "16px"
-          }}>
-            Home 1
+          }} data-tina-field={tinaField(data, "subtitle")}>
+            {data.subtitle || "Home 1"}
           </div>
           <h2 style={{
             fontSize: "32px",
             lineHeight: "1.2",
-            color: "var(--text-charcoal)"
+            color: "var(--heading)"
           }} data-tina-field={tinaField(data, "title")}>
             {data.title || "Luxury Weddings & Parties"}
           </h2>
-          <div style={{ height: "1px", width: "40px", backgroundColor: "rgba(0,0,0,0.1)", margin: "24px auto 0" }}></div>
+          <div style={{ height: "1px", width: "40px", backgroundColor: "var(--border)", margin: "24px auto 0" }}></div>
         </div>
+
+        <style jsx>{`
+          @media (max-width: 768px) {
+            .hero-masonry-grid {
+              grid-template-columns: 1fr !important;
+              height: auto !important;
+              gap: 20px !important;
+            }
+            .hero-masonry-grid > div {
+              height: 400px !important;
+            }
+            .hero-floating-card {
+              position: relative !important;
+              left: 0 !important;
+              bottom: 0 !important;
+              margin-top: -40px !important;
+              min-width: 0 !important;
+              width: 90% !important;
+              margin-left: auto !important;
+              margin-right: auto !important;
+              padding: 30px !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );

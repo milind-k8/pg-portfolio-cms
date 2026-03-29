@@ -16,7 +16,7 @@ export default function Footer() {
     fontSize: "9px",
     textTransform: "uppercase" as const,
     letterSpacing: "0.2em",
-    color: "rgba(0,0,0,0.5)",
+    color: "var(--paragraphs)",
     transition: "color 0.3s ease",
     cursor: "pointer",
     display: "block",
@@ -24,14 +24,14 @@ export default function Footer() {
   };
 
   return (
-    <footer style={{ backgroundColor: "var(--bg-almond)", paddingTop: "120px", paddingBottom: "60px" }}>
+    <footer style={{ backgroundColor: "var(--background)", paddingTop: "120px", paddingBottom: "60px" }}>
       {/* Instagram Header */}
-      <h2 style={{ textAlign: "center", fontSize: "36px", marginBottom: "40px" }}>
+      <h2 style={{ textAlign: "center", fontSize: "36px", marginBottom: "40px", color: "var(--heading)" }}>
         Instagram
       </h2>
 
       {/* 6 Grid layout spanning full width roughly */}
-      <div style={{
+      <div className="instagram-grid" style={{
         display: "flex",
         width: "100%",
         gap: "4px",
@@ -46,7 +46,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Links & Social */}
-      <div className="container" style={{
+      <div className="container footer-links-grid" style={{
         display: "flex",
         justifyContent: "space-between",
         maxWidth: "800px",
@@ -54,19 +54,41 @@ export default function Footer() {
         textAlign: "center"
       }}>
         <div style={{ flex: 1 }}>
-          <h3 style={{ fontSize: "18px", marginBottom: "24px" }}>Social</h3>
+          <h3 style={{ fontSize: "18px", marginBottom: "24px", color: "var(--heading)" }}>Social</h3>
           <a style={linkStyle}>Instagram</a>
           <a style={linkStyle}>Facebook</a>
           <a style={linkStyle}>Pinterest</a>
         </div>
-        <div style={{ width: "1px", backgroundColor: "rgba(0,0,0,0.05)" }}></div>
+        <div className="footer-divider" style={{ width: "1px", backgroundColor: "var(--border)" }}></div>
         <div style={{ flex: 1 }}>
-          <h3 style={{ fontSize: "18px", marginBottom: "24px" }}>Quick Links</h3>
+          <h3 style={{ fontSize: "18px", marginBottom: "24px", color: "var(--heading)" }}>Quick Links</h3>
           <a style={linkStyle}>Licensing</a>
           <a style={linkStyle}>Style Guide</a>
           <a style={linkStyle}>Changelog</a>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .instagram-grid {
+            flex-wrap: wrap !important;
+            height: auto !important;
+            margin-bottom: 60px !important;
+          }
+          .instagram-grid > div {
+             flex: none !important;
+             width: calc(33.33% - 4px) !important;
+             height: 120px !important;
+          }
+          .footer-links-grid {
+             flex-direction: column !important;
+             gap: 40px !important;
+          }
+          .footer-divider {
+            display: none;
+          }
+        }
+      `}</style>
 
       <div style={{ textAlign: "center", marginTop: "100px" }}>
         <div style={{
@@ -74,7 +96,7 @@ export default function Footer() {
           fontSize: "24px",
           fontWeight: 300,
           letterSpacing: "0.15em",
-          color: "var(--text-charcoal)",
+          color: "var(--heading)",
         }}>
           LOOVIO
         </div>
