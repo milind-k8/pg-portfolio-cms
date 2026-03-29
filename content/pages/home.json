@@ -1,0 +1,74 @@
+{
+  "blocks": [
+    {
+      "subtitle": "Legendary Parties",
+      "title": "Extraordinary Wedding Photography",
+      "ctaText": "Book a Consult",
+      "ctaLink": "#",
+      "image1": "/images/hero_party.png",
+      "image2": "/images/hero_party.png",
+      "image3": "/images/hero_party.png",
+      "_template": "hero"
+    },
+    {
+      "items": [
+        {
+          "image": "/images/services_wedding.png",
+          "title": "Weddings",
+          "description": "Elegant imagery capturing the raw emotion and timeless beauty of your bespoke celebration.",
+          "link": "#"
+        },
+        {
+          "image": "/images/services_wedding.png",
+          "title": "Event Design",
+          "description": "Exquisite styling that perfectly complements the fine art of legendary entertaining.",
+          "link": "#"
+        },
+        {
+          "image": "/images/services_wedding.png",
+          "title": "Branding",
+          "description": "A quiet luxury approach to personal and professional style.",
+          "link": "#"
+        }
+      ],
+      "_template": "services"
+    },
+    {
+      "image": "/images/about_portrait.png",
+      "sectionTitle": "Who We Are",
+      "content": "We believe in the power of timeless storytelling.\n\nEvery frame we capture is imbued with the quiet luxury of the moments that define your life. Through careful observation and a natural, editorial approach, we preserve your legacy with authenticity and grace.",
+      "signature": "Lynn Goodman",
+      "_template": "about"
+    },
+    {
+      "items": [
+        {
+          "quote": "The most exquisite experience we've ever had. True artists.",
+          "author": "Jennifer & Oliver"
+        }
+      ],
+      "_template": "testimonials"
+    },
+    {
+      "items": [
+        {
+          "image": "/images/portfolio_couple.png",
+          "name": "Jennifer & Oliver"
+        },
+        {
+          "image": "/images/portfolio_couple.png",
+          "name": "Sarah & Michael"
+        },
+        {
+          "image": "/images/portfolio_couple.png",
+          "name": "Amelia & Thomas"
+        },
+        {
+          "image": "/images/portfolio_couple.png",
+          "name": "Isabella & James"
+        }
+      ],
+      "_template": "portfolio"
+    }
+  ]
+}
