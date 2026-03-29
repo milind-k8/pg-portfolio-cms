@@ -1,0 +1,12 @@
+{
+  "blocks": [
+    {
+      "title": "Start Your Story",
+      "description": "We would love to hear from you. Please send us an email or reach out on WhatsApp to discuss your upcoming event.",
+      "image": "/images/services_wedding.png",
+      "email": "hello@loovio.com",
+      "whatsapp": "https://wa.me/1234567890",
+      "_template": "inquiry"
+    }
+  ]
+}

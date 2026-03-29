@@ -28,8 +28,7 @@ export default function Header() {
       {/* Left Navigation */}
       <div style={{ display: "flex", gap: "32px", alignItems: "center", flex: 1 }}>
         <Link href="/" style={linkStyle}>Home</Link>
-        <Link href="#portfolio" style={linkStyle}>Portfolio</Link>
-        <Link href="#about" style={linkStyle}>About</Link>
+        <Link href="/stories" style={linkStyle}>Stories</Link>
       </div>
       
       {/* Centered Logo */}
@@ -47,12 +46,8 @@ export default function Header() {
       
       {/* Right Navigation */}
       <div style={{ display: "flex", gap: "32px", alignItems: "center", justifyContent: "flex-end", flex: 1 }}>
-        <Link href="#journal" style={linkStyle}>Journal</Link>
-        <Link href="#services" style={linkStyle}>Services</Link>
-        <Link href="#shop" style={linkStyle}>Shop</Link>
-        <button style={{ ...linkStyle, background: "none", border: "none" }}>
-          Cart (0)
-        </button>
+        <Link href="/about" style={linkStyle}>About</Link>
+        <Link href="/inquiry" style={linkStyle}>Inquiry</Link>
       </div>
     </header>
   );

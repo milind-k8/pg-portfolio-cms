@@ -1,0 +1,12 @@
+{
+  "blocks": [
+    {
+      "image": "/images/about_portrait.png",
+      "sectionTitle": "About Your Photographer",
+      "content": "I am a fine art photographer specializing in high-end weddings and portraits. With over 10 years of experience, I bring a unique blend of editorial style and authentic storytelling to every session.",
+      "instagramLink": "https://instagram.com",
+      "facebookLink": "https://facebook.com",
+      "_template": "aboutProfile"
+    }
+  ]
+}

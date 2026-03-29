@@ -9,6 +9,9 @@ import StoryAbout from "@/components/blocks/StoryAbout";
 import Testimonials from "@/components/blocks/Testimonials";
 import PortfolioGrid from "@/components/blocks/PortfolioGrid";
 
+import AboutProfile from "@/components/blocks/AboutProfile";
+import Inquiry from "@/components/blocks/Inquiry";
+
 export default function ClientPage(props: any) {
   // Pass the server-fetched data into useTina
   const { data } = useTina({
@@ -30,6 +33,10 @@ export default function ClientPage(props: any) {
                   return <ServicesGrid key={i} data={block} />;
                 case "PageBlocksAbout":
                   return <StoryAbout key={i} data={block} />;
+                case "PageBlocksAboutProfile":
+                  return <AboutProfile key={i} data={block} />;
+                case "PageBlocksInquiry":
+                  return <Inquiry key={i} data={block} />;
                 case "PageBlocksTestimonials":
                   return <Testimonials key={i} data={block} />;
                 case "PageBlocksPortfolio":

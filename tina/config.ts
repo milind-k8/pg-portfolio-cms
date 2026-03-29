@@ -51,6 +51,30 @@ const aboutBlock: Template = {
   ],
 };
 
+const aboutProfileBlock: Template = {
+  name: "aboutProfile",
+  label: "About Profile Section",
+  fields: [
+    { type: "image", name: "image", label: "Photographer Photo" },
+    { type: "string", name: "sectionTitle", label: "Title (e.g., About Me)" },
+    { type: "string", name: "content", label: "Bio Description", ui: { component: "textarea" } },
+    { type: "string", name: "instagramLink", label: "Instagram Link" },
+    { type: "string", name: "facebookLink", label: "Facebook Link" },
+  ],
+};
+
+const inquiryBlock: Template = {
+  name: "inquiry",
+  label: "Inquiry & Contact Section",
+  fields: [
+    { type: "string", name: "title", label: "Title" },
+    { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+    { type: "image", name: "image", label: "Aesthetic Image" },
+    { type: "string", name: "email", label: "Email Address" },
+    { type: "string", name: "whatsapp", label: "WhatsApp Link / Number" },
+  ],
+};
+
 const testimonialsBlock: Template = {
   name: "testimonials",
   label: "Testimonials Section",
@@ -110,7 +134,12 @@ export default defineConfig({
         path: "content/pages",
         format: "json",
         ui: {
-          router: () => `/`, // Route all pages to the root or their permalink
+          router: ({ document }) => {
+            if (document._sys.filename === "home") {
+              return "/";
+            }
+            return `/${document._sys.filename}`;
+          },
         },
         fields: [
           {
@@ -122,9 +151,32 @@ export default defineConfig({
               heroBlock,
               servicesBlock,
               aboutBlock,
+              aboutProfileBlock,
+              inquiryBlock,
               testimonialsBlock,
               portfolioBlock,
             ],
+          },
+        ],
+      },
+      {
+        name: "story",
+        label: "Stories",
+        path: "content/stories",
+        format: "md",
+        ui: {
+          router: ({ document }) => `/stories/${document._sys.filename}`,
+        },
+        fields: [
+          { type: "string", name: "title", label: "Event / Client Name", isTitle: true, required: true },
+          { type: "datetime", name: "date", label: "Event Date" },
+          { type: "string", name: "description", label: "Event Description", ui: { component: "textarea" } },
+          { type: "image", name: "coverImage", label: "Cover Photo (Background)" },
+          {
+            type: "image",
+            list: true,
+            name: "gallery",
+            label: "Event Photos Gallery",
           },
         ],
       },
