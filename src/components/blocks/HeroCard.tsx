@@ -31,20 +31,20 @@ export default function HeroCard({ data }: { data: any }) {
           color: "var(--heading)"
         }} data-tina-field={tinaField(data, "heroTitle")}>
           {data.heroTitle ? data.heroTitle.split('\n').map((line: string, i: number) => (
-            <React.Fragment key={i}>{line}<br/></React.Fragment>
-          )) : <>Wedding Website <br/>Template</>}
+            <React.Fragment key={i}>{line}<br /></React.Fragment>
+          )) : <>Wedding Website <br />Template</>}
         </h1>
         <div style={{ height: "40px", width: "1px", backgroundColor: "rgba(0,0,0,0.1)", margin: "40px auto 0" }}></div>
       </div>
 
       <div style={{
-          fontFamily: "var(--font-sans)",
-          fontSize: "11px",
-          textAlign: "center",
-          textTransform: "uppercase",
-          letterSpacing: "0.25em",
-          color: "var(--subtitle)",
-          marginBottom: "40px",
+        fontFamily: "var(--font-sans)",
+        fontSize: "11px",
+        textAlign: "center",
+        textTransform: "uppercase",
+        letterSpacing: "0.25em",
+        color: "var(--subtitle)",
+        marginBottom: "40px",
       }}>
         Home Pages
       </div>
@@ -80,14 +80,14 @@ export default function HeroCard({ data }: { data: any }) {
         {/* Floating Center Card (HOME 1 style) */}
         <div className="hero-floating-card" style={{
           position: "absolute",
-          bottom: "10%",
-          left: "25%",
+          bottom: "-40px",
+          width: "90%",
           backgroundColor: "var(--white)",
           padding: "50px 80px",
           textAlign: "center",
           boxShadow: "0 10px 40px rgba(0,0,0,0.03)",
-          zIndex: 10,
-          minWidth: "400px"
+          zIndex: 20,
+          maxWidth: "780px"
         }}>
           <div style={{
             fontFamily: "var(--font-sans)",
@@ -100,7 +100,7 @@ export default function HeroCard({ data }: { data: any }) {
             {data.subtitle || "Home 1"}
           </div>
           <h2 style={{
-            fontSize: "32px",
+            fontSize: "48px",
             lineHeight: "1.2",
             color: "var(--heading)"
           }} data-tina-field={tinaField(data, "title")}>
