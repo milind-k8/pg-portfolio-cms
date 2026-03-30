@@ -9,14 +9,6 @@ export default function HeroCard({ data }: { data: any }) {
       {/* Top Text Header */}
       <div className="hero-top">
         <div className="border-top"></div>
-        <div className="hero-icon-wrapper">
-          <svg width="40" height="20" viewBox="0 0 40 20" fill="none" style={{ margin: "0 auto", opacity: 0.5 }}>
-            <path d="M0 10C10 10 10 0 20 0C30 0 30 10 40 10C30 10 30 20 20 20C10 20 10 10 0 10Z" stroke="var(--accent)" strokeWidth="0.5" />
-          </svg>
-        </div>
-        <div className="subtitle" data-tina-field={tinaField(data, "heroTopper")}>
-          {data.heroTopper || "Live"}
-        </div>
         <h1 className="heading-hero" data-tina-field={tinaField(data, "heroTitle")}>
           {(data.heroTitle || "Portraits of \nAuthenticity").split("\n").map((line: string, i: number) => (
             <React.Fragment key={i}>

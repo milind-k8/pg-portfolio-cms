@@ -8,19 +8,9 @@ export default function ServicesGrid({ data }: { data: any }) {
 
   return (
     <Section className="fade-in-up" decorations="floral-v2" width="wide">
-      <div className="services-topper">
-        Inner Pages
-      </div>
-
       <div className="services-grid">
         {items.map((item: any, i: number) => (
           <div key={i} className="service-card">
-            <div className="service-number">
-              <span className="service-number-line"></span>
-              Service 0{i + 1}
-              <span className="service-number-line"></span>
-            </div>
-
             <div className="service-img-container">
               <Image
                 src={item.image || "/images/services_wedding.png"}
@@ -31,7 +21,6 @@ export default function ServicesGrid({ data }: { data: any }) {
                 data-tina-field={tinaField(item, "image")}
               />
             </div>
-
             <h2 className="service-card-title" data-tina-field={tinaField(item, "title")}>
               {item.title || "Service Title"}
             </h2>
@@ -102,7 +91,7 @@ export default function ServicesGrid({ data }: { data: any }) {
           width: 100%;
           height: 220px; /* Reduced from 250px */
           overflow: hidden;
-          marginBottom: 32px;
+          margin-bottom: 32px;
           background-color: var(--preload);
         }
 
