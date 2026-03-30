@@ -1,36 +1,32 @@
 import React from "react";
 import Image from "next/image";
 import { tinaField } from "tinacms/dist/react";
+import Section from "../layout/Section";
 
 export default function StoryAbout({ data }: { data: any }) {
-  // If data is null or undefined (e.g. initial load)
   if (!data) return null;
 
   return (
-    <section className="section container fade-in-up">
-      <div className="story-about-grid" style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "100px",
-        alignItems: "center"
-      }}>
+    <Section className="fade-in-up" decorations="leaf-v1">
+      <div className="story-about-grid">
         {/* Left Side Image */}
-        <div className="story-about-img" style={{ position: "relative", width: "100%", height: "700px", overflow: "hidden" }}>
-          <Image src={data.image || "/images/about_portrait.png"} alt="About Portrait" fill style={{ objectFit: "cover" }} data-tina-field={tinaField(data, "image")} />
+        <div className="story-about-img">
+          <Image 
+            src={data.image || "/images/about_portrait.png"} 
+            alt="About Portrait" 
+            fill 
+            style={{ objectFit: "cover" }} 
+            data-tina-field={tinaField(data, "image")} 
+            className="hover-zoom-img"
+          />
         </div>
 
         {/* Right Side Content */}
-        <div>
-          <h2 style={{ fontSize: "48px", marginBottom: "40px", color: "var(--heading)" }} data-tina-field={tinaField(data, "sectionTitle")}>
+        <div className="story-about-content">
+          <h2 className="story-about-title" data-tina-field={tinaField(data, "sectionTitle")}>
             {data.sectionTitle || "Who We Are"}
           </h2>
-          <div style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "18px",
-            lineHeight: "1.8",
-            color: "var(--paragraphs)",
-            marginBottom: "40px"
-          }} data-tina-field={tinaField(data, "content")}>
+          <div className="story-about-body" data-tina-field={tinaField(data, "content")}>
             {typeof data.content === "string" ? <p style={{ whiteSpace: "pre-wrap" }}>{data.content}</p> : (
               <>
                 <p style={{ marginBottom: "20px" }}>We believe in the power of timeless storytelling.</p>
@@ -38,33 +34,76 @@ export default function StoryAbout({ data }: { data: any }) {
               </>
             )}
           </div>
-          
-          <div style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "32px",
-            color: "var(--accent)",
-            fontStyle: "italic"
-          }} data-tina-field={tinaField(data, "signature")}>
+
+          <div className="story-about-signature" data-tina-field={tinaField(data, "signature")}>
             {data.signature || "Lynn Goodman"}
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        @media (max-width: 1024px) {
+        .story-about-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px; /* Reduced from 100px */
+          align-items: center;
+          width: 100%;
+        }
+
+        .story-about-img {
+          position: relative;
+          width: 100%;
+          height: 500px; /* Reduced from 700px to match Lovio's tight look */
+          overflow: hidden;
+          background-color: var(--preload);
+        }
+
+        .story-about-title {
+          font-size: 40px; /* Scaled down slightly */
+          margin-bottom: 32px;
+          color: var(--heading);
+          font-family: var(--font-serif);
+          line-height: 1.2;
+        }
+
+        .story-about-body {
+          font-family: var(--font-sans);
+          font-size: 16px; /* Scaled down from 18px */
+          line-height: 1.7;
+          color: var(--paragraphs);
+          margin-bottom: 40px;
+        }
+
+        .story-about-signature {
+          font-family: var(--font-cursive); /* Was font-serif, but let's use cursive for signature */
+          font-size: 32px;
+          color: var(--accent);
+        }
+
+        @media (max-width: 991px) {
           .story-about-grid {
-             gap: 40px !important;
+            gap: 40px;
+          }
+          .story-about-title {
+            font-size: 32px;
           }
         }
-        @media (max-width: 768px) {
+
+        @media (max-width: 767px) {
           .story-about-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: 1fr;
+            gap: 32px;
           }
           .story-about-img {
-            height: 400px !important;
+            height: 350px;
+          }
+          .story-about-content {
+             padding: 0 10px;
           }
         }
       `}</style>
-    </section>
+    </Section>
   );
 }
+
+

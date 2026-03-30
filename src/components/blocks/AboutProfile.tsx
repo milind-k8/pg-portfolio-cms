@@ -1,35 +1,31 @@
 import React from "react";
 import Image from "next/image";
 import { tinaField } from "tinacms/dist/react";
+import Section from "../layout/Section";
 
 export default function AboutProfile({ data }: { data: any }) {
   return (
-    <section className="section container fade-in-up">
-      <div className="about-profile-grid" style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "100px",
-        alignItems: "center"
-      }}>
-        <div className="about-img-wrapper" style={{ position: "relative", height: "800px", width: "100%", overflow: "hidden" }}>
-          <Image src={data.image || "/images/about_portrait.png"} alt="Photographer" fill style={{ objectFit: "cover" }} data-tina-field={tinaField(data, "image")} className="hover-zoom-img" />
+    <Section className="fade-in-up" decorations="floral-v2">
+      <div className="about-profile-grid">
+        <div className="about-img-wrapper">
+          <Image 
+            src={data.image || "/images/about_portrait.png"} 
+            alt="Photographer" 
+            fill 
+            style={{ objectFit: "cover" }} 
+            data-tina-field={tinaField(data, "image")} 
+            className="hover-zoom-img" 
+          />
         </div>
-        <div>
-          <h1 className="about-title" style={{ fontSize: "64px", marginBottom: "40px", fontWeight: 300, color: "var(--heading)" }} data-tina-field={tinaField(data, "sectionTitle")}>
+        <div className="about-content-wrapper">
+          <h1 className="about-title" data-tina-field={tinaField(data, "sectionTitle")}>
             {data.sectionTitle || "About Me"}
           </h1>
-          <p style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "18px",
-            lineHeight: "1.8",
-            color: "var(--paragraphs)",
-            marginBottom: "60px",
-            whiteSpace: "pre-wrap"
-          }} data-tina-field={tinaField(data, "content")}>
+          <p className="about-body" data-tina-field={tinaField(data, "content")}>
             {data.content || "Passionate about capturing the essence of life's most precious moments with a touch of luxury and timeless elegance."}
           </p>
           
-          <div style={{ display: "flex", gap: "40px" }}>
+          <div className="about-social-links">
             {data.instagramLink && (
               <a href={data.instagramLink} target="_blank" className="text-link-cta" data-tina-field={tinaField(data, "instagramLink")}>Instagram</a>
             )}
@@ -41,23 +37,69 @@ export default function AboutProfile({ data }: { data: any }) {
       </div>
 
       <style jsx>{`
-        @media (max-width: 1024px) {
-          .about-profile-grid {
-             gap: 40px !important;
-          }
+        .about-profile-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px; /* Reduced from 100px */
+          align-items: center;
+          width: 100%;
         }
-        @media (max-width: 768px) {
+
+        .about-img-wrapper {
+          position: relative;
+          height: 600px; /* Reduced from 800px */
+          width: 100%;
+          overflow: hidden;
+          background-color: var(--preload);
+        }
+
+        .about-title {
+          font-size: 48px; /* Reduced from 64px */
+          font-weight: 300;
+          color: var(--heading);
+          font-family: var(--font-serif);
+          margin-bottom: 32px;
+          line-height: 1.1;
+        }
+
+        .about-body {
+          font-family: var(--font-serif);
+          font-size: 18px;
+          line-height: 1.8;
+          color: var(--paragraphs);
+          margin-bottom: 40px;
+          white-space: pre-wrap;
+        }
+
+        .about-social-links {
+          display: flex;
+          gap: 40px;
+        }
+
+        @media (max-width: 991px) {
           .about-profile-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .about-img-wrapper {
-            height: 500px !important;
+             gap: 40px;
           }
           .about-title {
-            font-size: 48px !important;
+            font-size: 40px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .about-profile-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
+          .about-img-wrapper {
+            height: 400px;
+          }
+          .about-content-wrapper {
+             padding: 0 10px;
           }
         }
       `}</style>
-    </section>
+    </Section>
   );
 }
+
+

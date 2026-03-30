@@ -1,54 +1,83 @@
 import React from "react";
 import { tinaField } from "tinacms/dist/react";
+import Section from "../layout/Section";
 
 export default function Testimonials({ data }: { data: any }) {
   const items = data.items || [];
 
   return (
-    <section className="section container fade-in-up" style={{ textAlign: "center", backgroundColor: "var(--preload)", padding: "120px 5%" }}>
-      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-        <div style={{
-          fontFamily: "var(--font-sans)",
-          fontSize: "10px",
-          textTransform: "uppercase",
-          letterSpacing: "0.25em",
-          color: "var(--subtitle)",
-          marginBottom: "40px"
-        }}>
+    <Section className="fade-in-up" decorations="mixed-v1" width="narrow">
+      <div className="testimonials-container">
+        <div className="testimonials-topper">
           Kind Words
         </div>
         
         {items.map((item: any, i: number) => (
-          <div key={i} style={{ marginBottom: "60px" }}>
-            <p style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "32px",
-              lineHeight: "1.4",
-              color: "var(--heading)",
-              marginBottom: "32px"
-            }} data-tina-field={tinaField(item, "quote")}>
-              "{item.quote}"
+          <div key={i} className="testimonial-item">
+            <p className="testimonial-quote" data-tina-field={tinaField(item, "quote")}>
+              "{item.quote || "The most exquisite experience we've ever had. True artists."}"
             </p>
-            <div style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "12px",
-              textTransform: "uppercase",
-              letterSpacing: "0.15em",
-              color: "var(--paragraphs)"
-            }} data-tina-field={tinaField(item, "author")}>
-              — {item.author}
+            <div className="testimonial-author" data-tina-field={tinaField(item, "author")}>
+              — {item.author || "Client Name"}
             </div>
           </div>
         ))}
       </div>
 
       <style jsx>{`
-        @media (max-width: 768px) {
-           h1, h2, h3, p {
-             font-size: 24px !important;
-           }
+        .testimonials-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          text-align: center;
+        }
+
+        .testimonials-topper {
+          font-family: var(--font-sans);
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 0.25em;
+          color: var(--subtitle);
+          margin-bottom: 40px;
+          width: 100%;
+        }
+
+        .testimonial-item {
+          margin-bottom: 60px;
+          width: 100%;
+        }
+
+        .testimonial-quote {
+          font-family: var(--font-serif);
+          font-size: 32px;
+          line-height: 1.4;
+          color: var(--heading);
+          margin-bottom: 32px;
+        }
+
+        .testimonial-author {
+          font-family: var(--font-sans);
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          color: var(--paragraphs);
+        }
+
+        @media (max-width: 767px) {
+          .testimonial-quote {
+            font-size: 24px;
+          }
+          .testimonial-item {
+             margin-bottom: 40px;
+          }
+          .testimonials-container {
+             padding: 0 10px;
+          }
         }
       `}</style>
-    </section>
+    </Section>
   );
 }
+
+

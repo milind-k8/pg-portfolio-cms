@@ -8,9 +8,11 @@
     --white: white;
     --preload: #ede9db;
 
-    --font-serif: var(--font-playfair);
-    --font-sans: var(--font-inter);
+    --font-serif: var(--font-marcellus), serif;
+    --font-sans: var(--font-montserrat), sans-serif;
+    --font-cursive: var(--font-homemade-apple), cursive;
 }
+
 
 * {
   box-sizing: border-box;
@@ -81,6 +83,7 @@ a {
 }
 
 /* Base layouts */
+/* Base layouts mimicking Lovio Webflow structure */
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -88,30 +91,187 @@ a {
 }
 
 .section {
-  padding: 100px 0;
+  width: 100%;
+  padding: 110px 5%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  position: relative;
 }
 
+.content {
+  width: 100%;
+  max-width: 1200px;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.content.narrow {
+  max-width: 720px;
+  align-items: flex-start;
+}
+
+.content.wide {
+  max-width: 1800px;
+}
+
+/* Lovio specific components */
+.section-hero {
+  width: 100%;
+  padding: 110px 0 60px;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.section-hero.page {
+  padding-top: 130px;
+  padding-bottom: 120px;
+}
+
+.hero-top {
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+}
+
+.subtitle {
+  color: var(--subtitle);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.heading-hero {
+  max-width: 800px;
+  text-transform: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--heading);
+}
+
+.border-top {
+  width: 1px;
+  height: 54px;
+  background-color: var(--border);
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.border-down {
+  width: 1px;
+  height: 54px;
+  background-color: var(--border);
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.border-down.margin {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+
 /* Mobile & Responsive Utilities */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .section {
-    padding: 80px 0;
+    padding: 100px 5%;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+  .section {
+    padding: 80px 5%;
+  }
+  
+  .content.wide {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
   .container {
-    padding: 0 8%;
+    padding: 0 5%;
+  }
+
+  .section {
+    padding: 60px 5%;
   }
 
   h1 {
-    font-size: 40px !important;
+    font-size: clamp(32px, 12vw, 48px) !important;
   }
 
   h2 {
-    font-size: 28px !important;
+    font-size: clamp(28px, 8vw, 36px) !important;
+  }
+
+  .responsive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
   }
 
   .grid-mobile-1 {
     grid-template-columns: 1fr !important;
   }
+
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .section {
+    padding: 40px 5%;
+  }
+}
+
+
+/* Aesthetic Animations & Decorations */
+.float-slow {
+  animation: float 20s ease-in-out infinite;
+}
+
+.drift-slow {
+  animation: drift 30s linear infinite;
+}
+
+.decoration-svg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  transition: opacity 1s ease;
+}
+
+.section:hover .decoration-svg {
+  opacity: 0.6;
+}
+
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(-30px) rotate(5deg) scale(1.05); }
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, 15px) rotate(10deg); }
+  66% { transform: translate(-20px, 25px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }

@@ -8,7 +8,7 @@ const branch =
 
 const heroBlock: Template = {
   name: "hero",
-  label: "Hero Section",
+  label: "Hero Section (Masonry)",
   fields: [
     { type: "string", name: "heroTopper", label: "Top Badge (e.g. Webflow)" },
     { type: "string", name: "heroTitle", label: "Main Headline", ui: { component: "textarea" } },
@@ -21,6 +21,16 @@ const heroBlock: Template = {
     { type: "image", name: "image3", label: "Masonry Image 3" },
   ],
 };
+
+const splashHeroBlock: Template = {
+  name: "splashHero",
+  label: "Hero Section (Splash)",
+  fields: [
+    { type: "string", name: "heroTopper", label: "Top Badge (e.g. Webflow)" },
+    { type: "string", name: "heroTitle", label: "Main Headline", ui: { component: "textarea" } },
+  ],
+};
+
 
 const servicesBlock: Template = {
   name: "services",
@@ -151,6 +161,7 @@ export default defineConfig({
             label: "Sections",
             templates: [
               heroBlock,
+              splashHeroBlock,
               servicesBlock,
               aboutBlock,
               aboutProfileBlock,
@@ -158,6 +169,7 @@ export default defineConfig({
               testimonialsBlock,
               portfolioBlock,
             ],
+
           },
         ],
       },

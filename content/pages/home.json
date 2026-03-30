@@ -7,27 +7,28 @@
       "title": "Extraordinary Wedding Photography",
       "ctaText": "Book a Consult",
       "ctaLink": "#",
-      "image1": "/images/hero_party.png",
-      "image2": "/images/051A1329.JPG",
-      "image3": "/images/services_wedding.png",
+      "image1": "/images/img_12.jpg",
+      "image2": "/images/img_11.jpg",
+      "image3": "/images/img_1.jpg",
       "_template": "hero"
     },
+
     {
       "items": [
         {
-          "image": "/images/services_wedding.png",
+          "image": "/images/img_4.jpg",
           "title": "Weddings",
           "description": "Elegant imagery capturing the raw emotion and timeless beauty of your bespoke celebration.",
           "link": "#"
         },
         {
-          "image": "/images/services_wedding.png",
+          "image": "/images/img_5.jpg",
           "title": "Event Design",
           "description": "Exquisite styling that perfectly complements the fine art of legendary entertaining.",
           "link": "#"
         },
         {
-          "image": "/images/services_wedding.png",
+          "image": "/images/img_6.jpg",
           "title": "Branding",
           "description": "A quiet luxury approach to personal and professional style.",
           "link": "#"
@@ -35,6 +36,7 @@
       ],
       "_template": "services"
     },
+
     {
       "image": "/images/about_portrait.png",
       "sectionTitle": "Who We Are",
@@ -54,20 +56,20 @@
     {
       "items": [
         {
-          "image": "/images/portfolio_couple.png",
+          "image": "/images/portfolio_1.jpg",
           "name": "Jennifer & Oliver"
         },
         {
-          "image": "/images/portfolio_couple.png",
-          "name": "Sarah & Michael"
+          "image": "/images/portfolio_2.jpg",
+          "name": "Briana & Richard"
         },
         {
-          "image": "/images/portfolio_couple.png",
-          "name": "Amelia & Thomas"
+          "image": "/images/portfolio_3.jpg",
+          "name": "Anne & Cameron"
         },
         {
-          "image": "/images/portfolio_couple.png",
-          "name": "Isabella & James"
+          "image": "/images/portfolio_4.jpg",
+          "name": "Linda & Charles"
         }
       ],
       "_template": "portfolio"

@@ -4,6 +4,7 @@ import { useTina } from "tinacms/dist/react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroCard from "@/components/blocks/HeroCard";
+import SplashHero from "@/components/blocks/SplashHero";
 import ServicesGrid from "@/components/blocks/ServicesGrid";
 import StoryAbout from "@/components/blocks/StoryAbout";
 import Testimonials from "@/components/blocks/Testimonials";
@@ -29,6 +30,9 @@ export default function ClientPage(props: any) {
               switch (block.__typename) {
                 case "PageBlocksHero":
                   return <HeroCard key={i} data={block} />;
+                case "PageBlocksSplashHero":
+                  return <SplashHero key={i} data={block} />;
+
                 case "PageBlocksServices":
                   return <ServicesGrid key={i} data={block} />;
                 case "PageBlocksAbout":
