@@ -141,6 +141,23 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: "global",
+        label: "Global Settings",
+        path: "content/settings",
+        format: "json",
+        ui: {
+          global: true,
+        },
+        fields: [
+          {
+            type: "string",
+            name: "metaPixelId",
+            label: "Meta Pixel ID",
+            description: "Enter your Meta (Facebook) Pixel ID (e.g., 1234567890). Leave blank to disable.",
+          },
+        ],
+      },
+      {
         name: "page",
         label: "Pages",
         path: "content/pages",

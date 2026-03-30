@@ -18,7 +18,12 @@ export default function HeroCard({ data }: { data: any }) {
           {data.heroTopper || "Live"}
         </div>
         <h1 className="heading-hero" data-tina-field={tinaField(data, "heroTitle")}>
-          {data.heroTitle || "Portraits of \nAuthenticity"}
+          {(data.heroTitle || "Portraits of \nAuthenticity").split("\n").map((line: string, i: number) => (
+            <React.Fragment key={i}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
         </h1>
         <div className="border-down margin"></div>
       </div>

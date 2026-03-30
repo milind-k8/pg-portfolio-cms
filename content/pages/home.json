@@ -12,7 +12,6 @@
       "image3": "/images/img_1.jpg",
       "_template": "hero"
     },
-
     {
       "items": [
         {
@@ -36,7 +35,6 @@
       ],
       "_template": "services"
     },
-
     {
       "image": "/images/about_portrait.png",
       "sectionTitle": "Who We Are",
