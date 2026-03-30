@@ -27,33 +27,33 @@ export default function HeroCard({ data }: { data: any }) {
       <div className="masonry-container">
         <div className="masonry-wrapper">
           <div className="masonry-item item-1">
-            <Image 
-              src={data.image1 || "/images/img_12.jpg"} 
-              alt="Hero 1" 
-              fill 
-              style={{ objectFit: "cover" }} 
-              className="hover-zoom-img" 
-              data-tina-field={tinaField(data, "image1")} 
+            <Image
+              src={data.image1 || "/images/img_12.jpg"}
+              alt="Hero 1"
+              fill
+              style={{ objectFit: "cover" }}
+              className="hover-zoom-img"
+              data-tina-field={tinaField(data, "image1")}
             />
           </div>
           <div className="masonry-item item-2">
-            <Image 
-              src={data.image2 || "/images/img_11.jpg"} 
-              alt="Hero 2" 
-              fill 
-              style={{ objectFit: "cover" }} 
-              className="hover-zoom-img" 
-              data-tina-field={tinaField(data, "image2")} 
+            <Image
+              src={data.image2 || "/images/img_11.jpg"}
+              alt="Hero 2"
+              fill
+              style={{ objectFit: "cover" }}
+              className="hover-zoom-img"
+              data-tina-field={tinaField(data, "image2")}
             />
           </div>
           <div className="masonry-item item-3">
-            <Image 
-              src={data.image3 || "/images/img_1.jpg"} 
-              alt="Hero 3" 
-              fill 
-              style={{ objectFit: "cover" }} 
-              className="hover-zoom-img" 
-              data-tina-field={tinaField(data, "image3")} 
+            <Image
+              src={data.image3 || "/images/img_1.jpg"}
+              alt="Hero 3"
+              fill
+              style={{ objectFit: "cover" }}
+              className="hover-zoom-img"
+              data-tina-field={tinaField(data, "image3")}
             />
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function HeroCard({ data }: { data: any }) {
         <div className="floating-hero-card">
           <div className="floating-card-inner">
             <div className="subtitle-small" data-tina-field={tinaField(data, "subtitle")}>
-               {data.subtitle || "Legendary Parties"}
+              {data.subtitle || "Legendary Parties"}
             </div>
             <h2 className="floating-card-title" data-tina-field={tinaField(data, "title")}>
               {data.title || "Extraordinary Wedding Photography"}
@@ -109,7 +109,7 @@ export default function HeroCard({ data }: { data: any }) {
 
         .floating-hero-card {
           position: absolute;
-          bottom: -40px;
+          bottom: 120px;
           left: 50%;
           transform: translateX(-50%);
           background-color: var(--white);
