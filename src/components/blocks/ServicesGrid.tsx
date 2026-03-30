@@ -7,7 +7,7 @@ export default function ServicesGrid({ data }: { data: any }) {
   const items = data.items || [];
 
   return (
-    <Section className="fade-in-up" decorations="floral-v3" width="wide">
+    <Section className="fade-in-up" decorations="floral-v2" width="wide">
       <div className="services-topper">
         Inner Pages
       </div>
@@ -15,23 +15,23 @@ export default function ServicesGrid({ data }: { data: any }) {
       <div className="services-grid">
         {items.map((item: any, i: number) => (
           <div key={i} className="service-card">
-             <div className="service-number">
-                <span className="service-number-line"></span>
-                Service 0{i+1}
-                <span className="service-number-line"></span>
-              </div>
+            <div className="service-number">
+              <span className="service-number-line"></span>
+              Service 0{i + 1}
+              <span className="service-number-line"></span>
+            </div>
 
             <div className="service-img-container">
-              <Image 
-                src={item.image || "/images/services_wedding.png"} 
-                alt={item.title || "Service"} 
-                fill 
-                style={{ objectFit: "cover" }} 
-                className="hover-zoom-img" 
-                data-tina-field={tinaField(item, "image")} 
+              <Image
+                src={item.image || "/images/services_wedding.png"}
+                alt={item.title || "Service"}
+                fill
+                style={{ objectFit: "cover" }}
+                className="hover-zoom-img"
+                data-tina-field={tinaField(item, "image")}
               />
             </div>
-            
+
             <h2 className="service-card-title" data-tina-field={tinaField(item, "title")}>
               {item.title || "Service Title"}
             </h2>

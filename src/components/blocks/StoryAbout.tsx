@@ -11,12 +11,12 @@ export default function StoryAbout({ data }: { data: any }) {
       <div className="story-about-grid">
         {/* Left Side Image */}
         <div className="story-about-img">
-          <Image 
-            src={data.image || "/images/about_portrait.png"} 
-            alt="About Portrait" 
-            fill 
-            style={{ objectFit: "cover" }} 
-            data-tina-field={tinaField(data, "image")} 
+          <Image
+            src={data.image || "/images/about_portrait.png"}
+            alt="About Portrait"
+            fill
+            style={{ objectFit: "cover" }}
+            data-tina-field={tinaField(data, "image")}
             className="hover-zoom-img"
           />
         </div>
@@ -48,6 +48,7 @@ export default function StoryAbout({ data }: { data: any }) {
           gap: 60px; /* Reduced from 100px */
           align-items: center;
           width: 100%;
+          background: white
         }
 
         .story-about-img {
